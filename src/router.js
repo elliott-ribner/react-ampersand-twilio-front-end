@@ -1,8 +1,10 @@
 import React from 'react';
 import Router from 'ampersand-router';
-import Public from './public';
-import Repos from './repos';
-import Layout from './layout.js';
+import MainPage from './pages/main-page';
+import Convo from './pages/convo';
+import Layout from './pages/layout';
+import Register from './pages/register';
+import Login from './pages/Login';
 
 export default Router.extend({
   renderPage (page, opts = {layout: true}) {
@@ -16,15 +18,25 @@ export default Router.extend({
     React.render(page, document.body)
   },
   routes: {
-    '': 'public',
-    'repos': 'repos',
+    '': 'mainPage',
+    'convo': 'convo',
+    'register': 'register',
+    'login': 'login',
   },
-  public() {
-    this.renderPage(<Public />, {layout: false});
-    console.log('public');
+  mainPage() {
+    this.renderPage(<MainPage />);
+    console.log('main page');
   },
-  repos() {
-    this.renderPage(<Repos />)
-    console.log('repos');
+  convo() {
+    this.renderPage(<Convo />)
+    console.log('convo');
+  },
+  register() {
+    this.renderPage(<Register />)
+    console.log('register')
+  },
+  login() {
+    this.renderPage(<Login />)
+    console.log('register')
   }
 })
