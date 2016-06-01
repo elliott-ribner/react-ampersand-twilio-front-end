@@ -1,7 +1,6 @@
 import Model from 'ampersand-model';
 import xhr from 'xhr';
-import $ from 'jquery';
-//import qs from 'qs';
+import app from '../app'
 
 export default Model.extend({
   props: {
@@ -10,39 +9,25 @@ export default Model.extend({
     token: 'string'
   },
   register(attributes) {
-    //query = qs.parse(query);
+    
+    let myObject = JSON.stringify(attributes)
     xhr({
       url: "http://localhost:4000/api/newuser",
-      body: attributes,
+      body: myObject,
       method: 'POST',
-      json: true
+      headers: {
+        "Content-Type": "application/json"
+      }
     }, function(err, req, body){
-      console.log('hello')
       if (err) {
+        console.log('hello')
         console.log(err);
       } else {
+        console.log('no prob');
+        //set it here
         console.log(body);
       }
     });
-   // $.ajax({
-   //      url: "http://localhost:4000/api/newuser",
-   //      type: "POST",
-   //      data: attributes,
-   //      dataType: "json",
-   //      success: function (result) {
-   //          switch (result) {
-   //              case true:
-                    
-   //                  break;
-   //              default:
-   //                  console.log(result);
-   //          }
-   //      },
-   //      error: function (xhr, ajaxOptions, thrownError) {
-   //        alert(xhr.status);
-   //        alert(thrownError);
-   //      }
-   //  });
-   
+
   }
 })
