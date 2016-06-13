@@ -7,7 +7,7 @@ window.app = app; // allowing us to access app from console
 
 window.app = {
   init() {
-    this.me = new Me({_id: 'x343', email: 'greegreg', token: 'none'});
+    this.me = new Me();
     this.router = new Router();
     this.router.history.start();
   }

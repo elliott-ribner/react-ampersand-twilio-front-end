@@ -10,7 +10,6 @@ export default Model.extend({
   },
   register(attributes) {
     const oldAttributes = this.getAttributes({props: true, session: false})
-    console.log(oldAttributes);
     let myObject = JSON.stringify(attributes)
     xhr({
       url: "http://localhost:4000/api/newuser",
@@ -24,12 +23,12 @@ export default Model.extend({
         console.log('hello')
         console.log(err);
       } else {
-        var responseBody = JSON.parse(body);
+        let responseBody = JSON.parse(body);
         oldAttributes.token = responseBody.token;
+        oldAttributes.email = attributes.email;
         this.set(oldAttributes);
         console.log('token returned and stored');
       }
     }.bind(this));
-
   }
 })
