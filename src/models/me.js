@@ -1,12 +1,16 @@
 import Model from 'ampersand-model';
 import xhr from 'xhr';
 import app from '../app'
+import ConvosCollection from './convos-collection';
 
 export default Model.extend({
   props: {
     _id: 'string',
     email: 'string',
     token: 'string'
+  },
+  collections: {
+    convos: ConvosCollection
   },
   register(attributes) {
     const oldAttributes = this.getAttributes({props: true, session: false})

@@ -6,6 +6,16 @@ import Layout from './pages/layout';
 import Register from './pages/register';
 import Login from './pages/Login';
 
+function requiresAuth(handlerName) {
+  return function() {
+    if (app.me.token) {
+      this[handlerName].apply(this, arguments);
+    } else {
+      this.redirectTo('/register');
+    }
+  }
+}
+
 export default Router.extend({
   renderPage (page, opts = {layout: true}) {
     if(opts.layout) {
@@ -19,7 +29,7 @@ export default Router.extend({
   },
   routes: {
     '': 'mainPage',
-    'convo': 'convo',
+    'convo': requiresAuth('convo'),
     'register': 'register',
     'login': 'login',
   },
@@ -38,5 +48,5 @@ export default Router.extend({
   login() {
     this.renderPage(<Login />)
     console.log('register')
-  }
+  },
 })

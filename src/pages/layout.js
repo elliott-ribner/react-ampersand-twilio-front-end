@@ -10,7 +10,7 @@ export default React.createClass({
           <label htmlFor='menu-toggle'>Menu</label>
           <ul className='list-unstyled list-inline cf'>
             <li>Create-A-Convo</li>
-            <li><a href='/repos'>Create Conversation</a></li>
+            <li><a href='/convo'>Create Conversation</a></li>
             <li className='pull-right'><a href='/'>Logout</a></li>
           </ul>
         </nav>
