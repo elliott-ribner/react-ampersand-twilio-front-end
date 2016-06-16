@@ -1,7 +1,7 @@
 import React from 'react';
 import Router from 'ampersand-router';
 import MainPage from './pages/main-page';
-import Convo from './pages/convo';
+import ConvoMaster from './pages/convo-master';
 import Layout from './pages/layout';
 import Register from './pages/register';
 import Login from './pages/Login';
@@ -38,7 +38,7 @@ export default Router.extend({
     console.log('main page');
   },
   convo() {
-    this.renderPage(<Convo />)
+    this.renderPage(<ConvoMaster />)
     console.log('convo');
   },
   register() {

@@ -33,7 +33,7 @@ export default React.createClass({
   render() {
     return (
         <div className='container'>
-          <h1>Convo</h1>
+          <h1>Convo Step</h1>
           <form onSubmit={this.onSubmit} >
             <input name='name' onChange={this.onNameChange} value={this.state.name} />
             <input name='type' onChange={this.onTypeChange} value={this.state.responseType} />
