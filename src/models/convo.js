@@ -7,5 +7,8 @@ export default Model.extend({
     code: 'string',
     phoneNumber: 'string',
     defaultResponse: 'string'
+  },
+  collections: {
+    steps: StepCollection
   }
 })

@@ -1,5 +1,6 @@
 import React from 'react'
 import ConvoCollection from '../models/convos-collection'
+import SingleStep from './single-step'
 
 export default React.createClass({
   getInitialState() {
@@ -45,7 +46,7 @@ export default React.createClass({
             <input name='question' onChange={this.onOwnerChange} value={this.state.owner} /><br />
             <button type='submit'>Set Values and create Convo Steps</button>
           </form>
-
+          <SingleStep />
         </div>
       )
   }
